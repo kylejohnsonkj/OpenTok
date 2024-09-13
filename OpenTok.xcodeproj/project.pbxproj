@@ -6,9 +6,48 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E50D66382C94DE4A00906236 /* OpenTok Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E50D66202C94DE4A00906236 /* OpenTok Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E50D66362C94DE4A00906236 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E50D66032C94DDD900906236 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E50D661F2C94DE4A00906236;
+			remoteInfo = "OpenTok Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E50D663D2C94DE4A00906236 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E50D66382C94DE4A00906236 /* OpenTok Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E50D660B2C94DDD900906236 /* OpenTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50D66202C94DE4A00906236 /* OpenTok Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OpenTok Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E50D66392C94DE4A00906236 /* Exceptions for "OpenTok Extension" folder in "OpenTok Extension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E50D661F2C94DE4A00906236 /* OpenTok Extension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E50D660D2C94DDD900906236 /* OpenTok */ = {
@@ -16,10 +55,29 @@
 			path = OpenTok;
 			sourceTree = "<group>";
 		};
+		E50D66212C94DE4A00906236 /* OpenTok Extension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E50D66392C94DE4A00906236 /* Exceptions for "OpenTok Extension" folder in "OpenTok Extension" target */,
+			);
+			explicitFolders = (
+				Resources/_locales,
+				Resources/images,
+			);
+			path = "OpenTok Extension";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E50D66082C94DDD900906236 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E50D661D2C94DE4A00906236 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				E50D660D2C94DDD900906236 /* OpenTok */,
+				E50D66212C94DE4A00906236 /* OpenTok Extension */,
 				E50D660C2C94DDD900906236 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				E50D660B2C94DDD900906236 /* OpenTok.app */,
+				E50D66202C94DE4A00906236 /* OpenTok Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,10 +115,12 @@
 				E50D66072C94DDD900906236 /* Sources */,
 				E50D66082C94DDD900906236 /* Frameworks */,
 				E50D66092C94DDD900906236 /* Resources */,
+				E50D663D2C94DE4A00906236 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E50D66372C94DE4A00906236 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				E50D660D2C94DDD900906236 /* OpenTok */,
@@ -69,6 +131,28 @@
 			productName = OpenTok;
 			productReference = E50D660B2C94DDD900906236 /* OpenTok.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E50D661F2C94DE4A00906236 /* OpenTok Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E50D663A2C94DE4A00906236 /* Build configuration list for PBXNativeTarget "OpenTok Extension" */;
+			buildPhases = (
+				E50D661C2C94DE4A00906236 /* Sources */,
+				E50D661D2C94DE4A00906236 /* Frameworks */,
+				E50D661E2C94DE4A00906236 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E50D66212C94DE4A00906236 /* OpenTok Extension */,
+			);
+			name = "OpenTok Extension";
+			packageProductDependencies = (
+			);
+			productName = "OpenTok Extension";
+			productReference = E50D66202C94DE4A00906236 /* OpenTok Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +165,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					E50D660A2C94DDD900906236 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					E50D661F2C94DE4A00906236 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -100,12 +187,20 @@
 			projectRoot = "";
 			targets = (
 				E50D660A2C94DDD900906236 /* OpenTok */,
+				E50D661F2C94DE4A00906236 /* OpenTok Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E50D66092C94DDD900906236 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E50D661E2C94DE4A00906236 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +217,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E50D661C2C94DE4A00906236 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E50D66372C94DE4A00906236 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E50D661F2C94DE4A00906236 /* OpenTok Extension */;
+			targetProxy = E50D66362C94DE4A00906236 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E50D66172C94DDDA00906236 /* Debug */ = {
@@ -258,8 +368,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -267,6 +378,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kylejohnson.OpenTok;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -287,8 +402,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,6 +412,78 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kylejohnson.OpenTok;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E50D663B2C94DE4A00906236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GP799FVH94;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "OpenTok Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "OpenTok Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kylejohnson.OpenTok.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E50D663C2C94DE4A00906236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GP799FVH94;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "OpenTok Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "OpenTok Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kylejohnson.OpenTok.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -319,6 +507,15 @@
 			buildConfigurations = (
 				E50D661A2C94DDDA00906236 /* Debug */,
 				E50D661B2C94DDDA00906236 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E50D663A2C94DE4A00906236 /* Build configuration list for PBXNativeTarget "OpenTok Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E50D663B2C94DE4A00906236 /* Debug */,
+				E50D663C2C94DE4A00906236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
