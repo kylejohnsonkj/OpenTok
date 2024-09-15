@@ -14,6 +14,7 @@ struct ContentView: View {
             HowToListView()
             FooterView()
         }
+        .background(Color.background)
     }
 }
 
@@ -86,13 +87,13 @@ struct HowToListView: View {
                 Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
                     HStack {
                         Image(systemName: "gear")
-                            .foregroundStyle(.white)
                             .imageScale(.large)
                         Text("Open Settings")
                     }
+                    .foregroundStyle(.settingsText)
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(.black)
+                .tint(Color.settingsBackground)
                 
                 Spacer()
                 
