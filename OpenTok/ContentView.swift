@@ -28,7 +28,7 @@ struct HeaderView: View {
                     .padding()
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("Tok Unblock")
+                        Text("OpenTok")
                             .font(.title)
                             .bold()
                     }
@@ -65,7 +65,7 @@ struct HowToListView: View {
                     color: .purple
                 )
                 ListEntry(
-                    Text("Select **Tok Unblock**"),
+                    Text("Select **OpenTok**"),
                     image: "bolt.horizontal",
                     color: .pink
                 )
