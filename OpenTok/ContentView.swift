@@ -26,6 +26,7 @@ struct HeaderView: View {
                     .resizable()
                     .frame(width: 96, height: 96)
                     .padding()
+                
                 VStack(alignment: .leading) {
                     HStack {
                         Text("OpenTok")
@@ -113,32 +114,42 @@ struct HowToListView: View {
 struct HowToButtonView: View {
     var body: some View {
         HStack(spacing: 12) {
-            Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
-                HStack {
-                    Image(systemName: "gear")
-                        .imageScale(.large)
-                    Text("Open Settings")
-                }
-                .foregroundStyle(.settingsText)
-            }
-            .buttonStyle(.borderedProminent)
+            ButtonView(
+                text: "Open Settings",
+                image: "gear",
+                link: UIApplication.openSettingsURLString
+            )
+            .foregroundStyle(.settingsText)
             .tint(Color.settingsBackground)
             
-            Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
-                HStack {
-                    Image(systemName: "music.note")
-                        .foregroundStyle(.white)
-                        .imageScale(.large)
-                    Text("Test Video")
-                }
-            }
-            .buttonStyle(.borderedProminent)
+            ButtonView(
+                text: "Test Video",
+                image: "music.note",
+                link: UIApplication.openSettingsURLString
+            )
             .tint(.pink)
         }
         .frame(maxWidth: .infinity)
         .listRowBackground(Color.clear)
         .listRowSeparator(.hidden)
         .padding(.top, -4)
+    }
+    
+    struct ButtonView: View {
+        let text: String
+        let image: String
+        let link: String
+        
+        var body: some View {
+            Link(destination: URL(string: link)!) {
+                HStack {
+                    Image(systemName: image)
+                        .imageScale(.large)
+                    Text(text)
+                }
+            }
+            .buttonStyle(.borderedProminent)
+        }
     }
 }
 
