@@ -83,33 +83,7 @@ struct HowToListView: View {
                 Text("\nHow to Enable")
             }
             
-            HStack(spacing: 12) {
-                Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
-                    HStack {
-                        Image(systemName: "gear")
-                            .imageScale(.large)
-                        Text("Open Settings")
-                    }
-                    .foregroundStyle(.settingsText)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(Color.settingsBackground)
-                
-                Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
-                    HStack {
-                        Image(systemName: "music.note")
-                            .foregroundStyle(.white)
-                            .imageScale(.large)
-                        Text("Test Video")
-                    }
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.pink)
-            }
-            .frame(maxWidth: .infinity)
-            .listRowBackground(Color.clear)
-            .listRowSeparator(.hidden)
-            .padding(.top, -4)
+            HowToButtonView()
         }
         .scrollBounceBehavior(.basedOnSize)
     }
@@ -133,6 +107,38 @@ struct HowToListView: View {
                     .foregroundStyle(color)
             }
         }
+    }
+}
+
+struct HowToButtonView: View {
+    var body: some View {
+        HStack(spacing: 12) {
+            Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
+                HStack {
+                    Image(systemName: "gear")
+                        .imageScale(.large)
+                    Text("Open Settings")
+                }
+                .foregroundStyle(.settingsText)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(Color.settingsBackground)
+            
+            Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
+                HStack {
+                    Image(systemName: "music.note")
+                        .foregroundStyle(.white)
+                        .imageScale(.large)
+                    Text("Test Video")
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.pink)
+        }
+        .frame(maxWidth: .infinity)
+        .listRowBackground(Color.clear)
+        .listRowSeparator(.hidden)
+        .padding(.top, -4)
     }
 }
 
