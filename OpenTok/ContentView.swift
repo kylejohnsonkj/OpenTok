@@ -41,7 +41,7 @@ struct HeaderView: View {
                 .padding(.vertical)
             }
         }
-        .padding(.top, 24)
+        .padding(.top)
     }
 }
 
@@ -83,7 +83,7 @@ struct HowToListView: View {
                 Text("\nHow to Enable")
             }
             
-            HStack {
+            HStack(spacing: 12) {
                 Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
                     HStack {
                         Image(systemName: "gear")
@@ -94,8 +94,6 @@ struct HowToListView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(Color.settingsBackground)
-                
-                Spacer()
                 
                 Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
                     HStack {
@@ -113,7 +111,7 @@ struct HowToListView: View {
             .listRowSeparator(.hidden)
             .padding(.top, -4)
         }
-        .scrollDisabled(true)
+        .scrollBounceBehavior(.basedOnSize)
     }
     
     struct ListEntry: View {
