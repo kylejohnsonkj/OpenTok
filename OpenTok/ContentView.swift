@@ -76,38 +76,41 @@ struct HowToListView: View {
                 ListEntry(
                     Text("Change tiktok.com to **Allow**"),
                     image: "checkmark.circle",
-                    color: .blue
+                    color: .orange
                 )
             } header: {
                 Text("\nHow to Enable")
             }
-            Section {
-                HStack(spacing: 24) {
-                    Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
-                        ListEntry(
-                            Text("Open Settings"),
-                            image: "gear",
-                            color: .white
-                        )
+            
+            HStack {
+                Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
+                    HStack {
+                        Image(systemName: "gear")
+                            .foregroundStyle(.white)
+                            .imageScale(.large)
+                        Text("Open Settings")
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.black)
-                    
-                    Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
-                        ListEntry(
-                            Text("Test Video Link"),
-                            image: "music.note",
-                            color: .white
-                        )
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.pink)
                 }
+                .buttonStyle(.borderedProminent)
+                .tint(.black)
+                
+                Spacer()
+                
+                Link(destination: URL(string: UIApplication.openSettingsURLString)!) {
+                    HStack {
+                        Image(systemName: "music.note")
+                            .foregroundStyle(.white)
+                            .imageScale(.large)
+                        Text("Test Video")
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.pink)
             }
             .frame(maxWidth: .infinity)
             .listRowBackground(Color.clear)
             .listRowSeparator(.hidden)
-            .padding(.top, -10)
+            .padding(.top, -4)
         }
         .scrollDisabled(true)
     }
@@ -126,7 +129,6 @@ struct HowToListView: View {
         var body: some View {
             Label {
                 text
-                    .multilineTextAlignment(.leading)
             } icon: {
                 Image(systemName: image)
                     .foregroundStyle(color)
@@ -141,7 +143,8 @@ struct FooterView: View {
             .font(.footnote)
             .bold()
             .foregroundStyle(.secondary)
-            .padding(8)
+            .padding(.top, 4)
+            .padding(.bottom, 12)
     }
 }
 
