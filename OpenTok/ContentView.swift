@@ -55,6 +55,13 @@ struct HowToListView: View {
                     image: "gear",
                     color: .gray
                 )
+                if #available(iOS 18, *) {
+                    ListEntry(
+                        Text("Select **Apps**"),
+                        image: "square.grid.3x3",
+                        color: .purple
+                    )
+                }
                 ListEntry(
                     Text("Select **Safari**"),
                     image: "safari",
@@ -63,7 +70,7 @@ struct HowToListView: View {
                 ListEntry(
                     Text("Select **Extensions**"),
                     image: "puzzlepiece.extension",
-                    color: .purple
+                    color: .gray
                 )
                 ListEntry(
                     Text("Select **OpenTok**"),
