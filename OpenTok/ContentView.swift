@@ -11,38 +11,58 @@ struct ContentView: View {
     var body: some View {
         VStack {
             HeaderView()
-            HowToListView()
-            FooterView()
+            HowToVideoView()
+            HowToButtonView()
+//            FooterView()
+            Spacer()
         }
         .background(Color.background)
     }
 }
 
+struct HowToVideoView: View {
+    var body: some View {
+        VStack(spacing: 16) {
+            Group {
+                Label {
+                    Text("Enable the extension while on a TikTok video in Safari (use this link!)")
+                        .font(.headline)
+                } icon: {
+                    Image(systemName: "1.circle")
+                        .imageScale(.large)
+                }
+                .padding(.top)
+                
+                VideoExplainerSwiftUIView()
+                    .aspectRatio(886 / 1172, contentMode: .fit)
+                    .shadow(radius: 10)
+            }
+            .padding(.horizontal)
+        }
+        .background(Color(UIColor.groupTableViewBackground))
+        .padding(.bottom)
+    }
+}
+
 struct HeaderView: View {
     var body: some View {
-        VStack {
-            HStack(spacing: 0) {
-                Image("AppIcon-Rounded")
-                    .resizable()
-                    .frame(width: 96, height: 96)
-                    .padding()
-                
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("OpenTok")
-                            .font(.title)
-                            .bold()
-                    }
-                    Text("A Safari extension that lets you watch shared TikToks in your browser")
-                        .font(.footnote)
-                        .bold()
-                        .foregroundStyle(.secondary)
-                }
+        HStack(spacing: 0) {
+            Image("AppIcon-Rounded")
+                .resizable()
+                .frame(width: 96, height: 96)
                 .padding(.trailing)
-                .padding(.vertical)
+            
+            VStack(alignment: .leading) {
+                Text("OpenTok")
+                    .font(.title)
+                    .bold()
+                Text("A Safari extension that lets you watch shared TikToks in your browser")
+                    .font(.footnote)
+                    .bold()
+                    .foregroundStyle(.secondary)
             }
         }
-        .padding(.top)
+        .padding()
     }
 }
 
@@ -121,14 +141,6 @@ struct HowToListView: View {
 struct HowToButtonView: View {
     var body: some View {
         HStack(spacing: 12) {
-            ButtonView(
-                text: "Open Settings",
-                image: "gear",
-                link: UIApplication.openSettingsURLString
-            )
-            .foregroundStyle(.settingsText)
-            .tint(Color.settingsBackground)
-            
             ButtonView(
                 text: "Test Video",
                 image: "music.note",
