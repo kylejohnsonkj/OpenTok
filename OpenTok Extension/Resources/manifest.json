@@ -15,18 +15,12 @@
         "512": "images/icon-512.png"
     },
 
-    "background": {
-        "scripts": [ "background.js" ],
-        "type": "module"
-    },
-
     "content_scripts": [{
         "js": [ "content.js" ],
         "matches": [ "*://tiktok.com/*" ]
     }],
 
     "action": {
-        "default_popup": "popup.html",
         "default_icon": {
             "48": "images/icon-48.png",
             "64": "images/icon-64.png",
