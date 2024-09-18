@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
+        ScrollView {
             HeaderView()
             HowToVideoView()
-            HowToButtonView()
+//            HowToButtonView()
 //            FooterView()
             Spacer()
         }
@@ -22,20 +22,65 @@ struct ContentView: View {
 
 struct HowToVideoView: View {
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(alignment: .leading, spacing: 0) {
             Group {
                 Label {
-                    Text("Enable the extension while on a TikTok video in Safari (use this link!)")
+                    Text("Open a shared TikTok video")
                         .font(.headline)
                 } icon: {
                     Image(systemName: "1.circle")
                         .imageScale(.large)
                 }
                 .padding(.top)
+                .padding(.bottom, 8)
+                
+                ButtonView(
+                    text: "Try it now!",
+                    image: "music.note",
+                    link: "https://www.tiktok.com/t/ZP8eVDC8c/"
+                )
+                .tint(.pink)
+                .padding(.leading, 35)
+                
+                Label {
+                    Text("Tap the \(Image(systemName: "list.bullet.below.rectangle")) icon on the left of the URL bar")
+                        .font(.headline)
+                } icon: {
+                    Image(systemName: "2.circle")
+                        .imageScale(.large)
+                }
+                .padding(.vertical)
+                
+                Label {
+                    Text("Enable the extension for TikTok.com")
+                        .font(.headline)
+                } icon: {
+                    Image(systemName: "3.circle")
+                        .imageScale(.large)
+                }
                 
                 VideoExplainerSwiftUIView()
                     .aspectRatio(886 / 1172, contentMode: .fit)
                     .shadow(radius: 10)
+                    .padding(.vertical)
+                
+                Label {
+                    Text("Videos still not playing?")
+                        .font(.headline)
+                } icon: {
+                    Image(systemName: "4.circle")
+                        .imageScale(.large)
+                }
+                .padding(.bottom, 8)
+                
+                ButtonView(
+                    text: "Verify setup",
+                    image: "gear",
+                    link: "https://www.tiktok.com/t/ZP8eVDC8c/"
+                )
+                .tint(Color(UIColor.darkGray))
+                .padding(.leading, 35)
+                .padding(.bottom)
             }
             .padding(.horizontal)
         }
@@ -144,7 +189,7 @@ struct HowToButtonView: View {
             ButtonView(
                 text: "Test Video",
                 image: "music.note",
-                link: UIApplication.openSettingsURLString
+                link: "https://www.tiktok.com/t/ZP8eVDC8c/"
             )
             .tint(.pink)
         }
@@ -153,22 +198,22 @@ struct HowToButtonView: View {
         .listRowSeparator(.hidden)
         .padding(.top, -4)
     }
+}
+
+struct ButtonView: View {
+    let text: String
+    let image: String
+    let link: String
     
-    struct ButtonView: View {
-        let text: String
-        let image: String
-        let link: String
-        
-        var body: some View {
-            Link(destination: URL(string: link)!) {
-                HStack {
-                    Image(systemName: image)
-                        .imageScale(.large)
-                    Text(text)
-                }
+    var body: some View {
+        Link(destination: URL(string: link)!) {
+            HStack {
+                Image(systemName: image)
+                    .imageScale(.large)
+                Text(text)
             }
-            .buttonStyle(.borderedProminent)
         }
+        .buttonStyle(.borderedProminent)
     }
 }
 
