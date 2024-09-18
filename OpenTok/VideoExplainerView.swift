@@ -68,7 +68,7 @@ final class VideoExplainerView: UIView {
         playerLayer?.frame = bounds
         
         let restartButtonSize = restartButton.sizeThatFits(.zero)
-        restartButton.frame = CGRect(x: bounds.width - restartButtonSize.width - restartButtonEdgeSpacing, y: bounds.height - restartButtonSize.height - restartButtonEdgeSpacing, width: restartButtonSize.width, height: restartButtonSize.height)
+        restartButton.frame = CGRect(x: restartButtonEdgeSpacing, y: restartButtonEdgeSpacing, width: restartButtonSize.width, height: restartButtonSize.height)
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -81,6 +81,7 @@ final class VideoExplainerView: UIView {
         let asset = AVAsset(url: Bundle.main.url(forResource: "explainer-light", withExtension: "mov")!)
         let playerItem = AVPlayerItem(asset: asset)
         let player = AVQueuePlayer(playerItem: playerItem)
+        player.isMuted = true
         
         if let playerLayer = playerLayer {
             playerLayer.player = player
