@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isSheetPresented = false
+    
     var body: some View {
-        ScrollView {
-            HeaderView()
-            HowToVideoView()
-//            HowToButtonView()
-//            FooterView()
-            Spacer()
+        ZStack(alignment: .top) {
+            Color.background
+                .ignoresSafeArea()
+                .frame(height: 400)
+            ScrollView {
+                HeaderView()
+                HowToVideoView()
+    //            FooterView()
+            }
         }
-        .background(Color.background)
+        .background(Color(UIColor.groupTableViewBackground))
     }
 }
 
@@ -24,6 +29,12 @@ struct HowToVideoView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Group {
+                Text("How to enable")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .textCase(.uppercase)
+                    .padding(.top)
+                
                 Label {
                     Text("Open a shared TikTok video")
                         .font(.headline)
@@ -31,7 +42,7 @@ struct HowToVideoView: View {
                     Image(systemName: "1.circle")
                         .imageScale(.large)
                 }
-                .padding(.top)
+                .padding(.top, 12)
                 .padding(.bottom, 8)
                 
                 ButtonView(
@@ -52,7 +63,7 @@ struct HowToVideoView: View {
                 .padding(.vertical)
                 
                 Label {
-                    Text("Enable the extension for TikTok.com")
+                    Text("Enable and allow the extension for TikTok.com")
                         .font(.headline)
                 } icon: {
                     Image(systemName: "3.circle")
@@ -61,22 +72,21 @@ struct HowToVideoView: View {
                 
                 VideoExplainerSwiftUIView()
                     .aspectRatio(886 / 1172, contentMode: .fit)
-                    .shadow(radius: 10)
+                    .shadow(radius: 3)
                     .padding(.vertical)
                 
                 Label {
-                    Text("Videos still not playing?")
+                    Text("TikToks still not playing?")
                         .font(.headline)
                 } icon: {
-                    Image(systemName: "4.circle")
+                    Image(systemName: "questionmark.circle")
                         .imageScale(.large)
                 }
                 .padding(.bottom, 8)
                 
-                ButtonView(
+                InternalButtonView(
                     text: "Verify setup",
-                    image: "gear",
-                    link: "https://www.tiktok.com/t/ZP8eVDC8c/"
+                    image: "gear"
                 )
                 .tint(Color(UIColor.darkGray))
                 .padding(.leading, 35)
@@ -85,7 +95,6 @@ struct HowToVideoView: View {
             .padding(.horizontal)
         }
         .background(Color(UIColor.groupTableViewBackground))
-        .padding(.bottom)
     }
 }
 
@@ -153,12 +162,12 @@ struct HowToListView: View {
                     color: .orange
                 )
             } header: {
-                Text("\nHow to Enable")
+                Text("\nVerify setup")
             }
             
-            HowToButtonView()
         }
-        .scrollBounceBehavior(.basedOnSize)
+        .presentationDetents([.medium])
+        .presentationDragIndicator(.visible)
     }
     
     struct ListEntry: View {
@@ -217,14 +226,39 @@ struct ButtonView: View {
     }
 }
 
+struct InternalButtonView: View {
+    let text: String
+    let image: String
+    
+    @State var isSheetPresented = false
+    
+    var body: some View {
+        Button {
+            isSheetPresented = true
+        } label: {
+            HStack {
+                Image(systemName: image)
+                    .imageScale(.large)
+                Text(text)
+            }
+        }
+        .buttonStyle(.borderedProminent)
+        .sheet(isPresented: $isSheetPresented) {
+            HowToListView()
+        }
+    }
+}
+
 struct FooterView: View {
     var body: some View {
         Text("© 2024 Kyle Johnson Apps")
             .font(.footnote)
             .bold()
             .foregroundStyle(.secondary)
-            .padding(.top, 4)
-            .padding(.bottom, 12)
+            .padding(.top)
+            .padding(.bottom, 10)
+            .frame(maxWidth: .infinity)
+            .background(Color.background)
     }
 }
 
