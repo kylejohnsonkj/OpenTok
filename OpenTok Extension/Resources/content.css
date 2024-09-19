@@ -1,0 +1,24 @@
+div[class*="DivFixedWrapper"], /* top bar and bottom "get the full experience" banner */
+div[class*="DivVideoCaption"] > div[class*="matrix-smart-wrapper"], /* bar beneath caption */
+div[class*="DivCamera"], /* watch on tiktok */
+div[class*="tux-base-dialog"], /* popup */
+div[class*="DivSwiperParent"], /* recommended videos */
+div[class*="DivSeeMore"], /* see more comments */
+div[class*="DivFinishTip"], /* scroll up to view more */
+div[class*="DivTuxBarContainer"], /* today's top videos */
+ul[class*="UlRList"], /* recommended videos */
+div[class*="DivBottomButtonSection"] { /* download tiktok button */
+    display: none;
+}
+
+div[class*="DivUnmuteButton"] {
+    top: 16px; /* move up now that top bar is hidden */
+}
+
+div[class*="layout-box"] {
+    padding: 0 !important; /* hide extra whitespace at bottom */
+}
+
+div[class*="DivCommentListContainer"] {
+    border-bottom: 20px solid rgb(255, 255, 255);
+}
