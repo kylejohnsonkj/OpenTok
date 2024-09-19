@@ -13,7 +13,7 @@ final class VideoExplainerView: UIView {
     var player: AVQueuePlayer?
     var playerLayer: AVPlayerLayer?
     var playerLooper: AVPlayerLooper?
-    let thumbnail = UIImageView(image: UIImage(named: "VideoThumbnail")!)
+    let thumbnail = UIImageView(image: UIImage(named: "video-thumbnail")!)
     
     let videoSize = CGSize(width: 828.0, height: 582.0)
     
@@ -81,7 +81,6 @@ final class VideoExplainerView: UIView {
         let asset = AVAsset(url: Bundle.main.url(forResource: "video", withExtension: "mp4")!)
         let playerItem = AVPlayerItem(asset: asset)
         let player = AVQueuePlayer(playerItem: playerItem)
-        player.isMuted = true
         
         if let playerLayer = playerLayer {
             playerLayer.player = player

@@ -56,8 +56,9 @@ struct HowToVideoView: View {
                 .padding(.leading, 35)
                 
                 Label {
-                    Text("Tap the \(Image(systemName: "list.bullet.below.rectangle")) icon on the left of the URL bar")
+                    Text("Tap the \(Image("symbol")) icon on the left of the URL bar")
                         .font(.headline)
+                        .imageScale(.large)
                 } icon: {
                     Image(systemName: "2.circle")
                         .imageScale(.large)
@@ -76,6 +77,7 @@ struct HowToVideoView: View {
                     .aspectRatio(1, contentMode: .fit)
                     .shadow(radius: 3)
                     .padding(.vertical)
+                    .padding(.horizontal, 2)
                 
                 Label {
                     Text("TikToks still not playing?")
