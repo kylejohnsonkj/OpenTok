@@ -56,7 +56,7 @@ struct HowToVideoView: View {
                 .padding(.leading, 35)
                 
                 Label {
-                    Text("Tap the \(Image("symbol")) icon on the left of the URL bar")
+                    Text("Tap the \(Image("symbol")) icon on the left of the search bar")
                         .font(.headline)
                         .imageScale(.large)
                 } icon: {
