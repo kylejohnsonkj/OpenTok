@@ -11,17 +11,19 @@ struct ContentView: View {
     @State var isSheetPresented = false
     
     var body: some View {
-        ZStack(alignment: .top) {
-            Color.background
-                .ignoresSafeArea()
-                .frame(height: 400)
-            ScrollView {
-                HeaderView()
-                HowToVideoView()
-    //            FooterView()
-            }
+        ScrollView {
+            HeaderView()
+            HowToVideoView()
+//            FooterView()
         }
-        .background(Color(UIColor.groupTableViewBackground))
+        .background(
+            LinearGradient(gradient: Gradient(colors: [
+                Color.background,
+                Color.background,
+                Color(UIColor.groupTableViewBackground),
+                Color(UIColor.groupTableViewBackground)
+            ]), startPoint: .top, endPoint: .bottom)
+        )
     }
 }
 
