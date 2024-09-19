@@ -73,7 +73,7 @@ struct HowToVideoView: View {
                 }
                 
                 VideoExplainerSwiftUIView()
-                    .aspectRatio(886 / 1172, contentMode: .fit)
+                    .aspectRatio(1, contentMode: .fit)
                     .shadow(radius: 3)
                     .padding(.vertical)
                 

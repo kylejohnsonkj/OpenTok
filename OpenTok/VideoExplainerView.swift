@@ -13,7 +13,7 @@ final class VideoExplainerView: UIView {
     var player: AVQueuePlayer?
     var playerLayer: AVPlayerLayer?
     var playerLooper: AVPlayerLooper?
-    let thumbnail = UIImageView(image: UIImage(named: "explainer-thumb")!)
+    let thumbnail = UIImageView(image: UIImage(named: "VideoThumbnail")!)
     
     let videoSize = CGSize(width: 828.0, height: 582.0)
     
@@ -23,7 +23,7 @@ final class VideoExplainerView: UIView {
     init() {
         super.init(frame: .zero)
 
-        print("🐶 Init of video explainer view did occur")
+//        print("🐶 Init of video explainer view did occur")
         
         setUpVideo()
         
@@ -68,7 +68,7 @@ final class VideoExplainerView: UIView {
         playerLayer?.frame = bounds
         
         let restartButtonSize = restartButton.sizeThatFits(.zero)
-        restartButton.frame = CGRect(x: restartButtonEdgeSpacing, y: restartButtonEdgeSpacing, width: restartButtonSize.width, height: restartButtonSize.height)
+        restartButton.frame = CGRect(x: bounds.width - restartButtonSize.width - restartButtonEdgeSpacing, y: bounds.height - restartButtonSize.height - restartButtonEdgeSpacing, width: restartButtonSize.width, height: restartButtonSize.height)
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -78,7 +78,7 @@ final class VideoExplainerView: UIView {
     }
     
     private func setUpVideo() {
-        let asset = AVAsset(url: Bundle.main.url(forResource: "explainer-light", withExtension: "mov")!)
+        let asset = AVAsset(url: Bundle.main.url(forResource: "video", withExtension: "mp4")!)
         let playerItem = AVPlayerItem(asset: asset)
         let player = AVQueuePlayer(playerItem: playerItem)
         player.isMuted = true
