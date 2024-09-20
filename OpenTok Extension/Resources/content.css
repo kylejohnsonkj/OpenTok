@@ -15,6 +15,10 @@ div[class*="DivUnmuteButton"] {
     top: 16px; /* move up now that top bar is hidden */
 }
 
+div[class*="DivInfoSection"], div[class*="DivCommentListContainer"] {
+    pointer-events: none; /* prevents redirects */
+}
+
 div[class*="layout-box"] {
     padding: 0 !important; /* hide extra whitespace at bottom */
 }
