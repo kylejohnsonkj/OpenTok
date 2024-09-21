@@ -6,17 +6,17 @@ div[class*="DivSwiperParent"], /* recommended videos */
 div[class*="DivSeeMore"], /* see more comments */
 div[class*="DivFinishTip"], /* scroll up to view more */
 div[class*="DivTuxBarContainer"], /* today's top videos */
-ul[class*="UlRList"], /* recommended videos */
-div[class*="DivBottomButtonSection"] { /* download tiktok button */
+div[class*="DivBottomButtonSection"], /* download tiktok button */
+ul[class*="UlRList"] { /* recommended videos */
     display: none;
 }
 
 div[class*="DivUnmuteButton"] {
-    top: 16px; /* move up now that top bar is hidden */
+    top: 16px; /* move unmute now that top bar is hidden */
 }
 
 div[class*="DivInfoSection"], div[class*="DivCommentListContainer"] {
-    pointer-events: none; /* prevents redirects */
+    pointer-events: none; /* prevent redirects to app store */
 }
 
 div[class*="layout-box"] {
@@ -24,5 +24,5 @@ div[class*="layout-box"] {
 }
 
 div[class*="DivCommentListContainer"] {
-    border-bottom: 19px solid rgb(255, 255, 255);
+    border-bottom: 19px solid white; /* bottom padding to fix layout */
 }
