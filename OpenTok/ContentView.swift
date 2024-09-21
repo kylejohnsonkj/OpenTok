@@ -148,7 +148,7 @@ struct HowToListView: View {
                 ListEntry(
                     Text("Select **Extensions**"),
                     image: "puzzlepiece.extension",
-                    color: .gray
+                    color: .teal
                 )
                 ListEntry(
                     Text("Select **OpenTok**"),
