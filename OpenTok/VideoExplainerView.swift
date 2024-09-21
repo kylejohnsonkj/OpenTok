@@ -9,21 +9,29 @@ import AVFoundation
 import SwiftUI
 import UIKit
 
+struct VideoExplainerSwiftUIView: UIViewRepresentable {
+    typealias UIViewType = VideoExplainerView
+    
+    func makeUIView(context: Context) -> VideoExplainerView {
+        VideoExplainerView()
+    }
+    
+    func updateUIView(_ uiView: VideoExplainerView, context: Context) {}
+}
+
 final class VideoExplainerView: UIView {
     var player: AVQueuePlayer?
     var playerLayer: AVPlayerLayer?
     var playerLooper: AVPlayerLooper?
     let thumbnail = UIImageView(image: UIImage(named: "video-thumbnail")!)
     
-    let videoSize = CGSize(width: 828.0, height: 582.0)
+    let videoSize = CGSize(width: 1080, height: 1080)
     
     let restartButton = UIButton(type: .system)
     let restartButtonEdgeSpacing: CGFloat = 12.0
     
     init() {
         super.init(frame: .zero)
-
-//        print("🐶 Init of video explainer view did occur")
         
         setUpVideo()
         
@@ -52,14 +60,6 @@ final class VideoExplainerView: UIView {
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("\(#file) does not implement coder.") }
-    
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        super.traitCollectionDidChange(previousTraitCollection)
-//     
-//        // Update the video too for a theme change
-//        guard traitCollection.userInterfaceStyle != previousTraitCollection?.userInterfaceStyle else { return }
-//        setUpVideo()
-//    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -96,17 +96,8 @@ final class VideoExplainerView: UIView {
         playerLayer?.rasterizationScale = UIScreen.main.scale
         playerLayer?.videoGravity = .resize
         
-//        if self.traitCollection.userInterfaceStyle == .dark {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-//                // Wait a second before playing because I'm a dummy and for the dark version I didn't add enough buffer before
-//                player.play()
-//            }
-//        } else {
-//            player.play()
-//        }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-            // Wait a second before playing because I'm a dummy and for the dark version I didn't add enough buffer before
+            // Wait a second before playing
             player.play()
         }
     }
@@ -123,17 +114,5 @@ final class VideoExplainerView: UIView {
         restartButton.layer.shadowRadius = 8.0
         restartButton.layer.shouldRasterize = true
         restartButton.layer.rasterizationScale = UIScreen.main.scale
-    }
-}
-
-struct VideoExplainerSwiftUIView: UIViewRepresentable {
-    typealias UIViewType = VideoExplainerView
-    
-    func makeUIView(context: Context) -> VideoExplainerView {
-        VideoExplainerView()
-    }
-    
-    func updateUIView(_ uiView: VideoExplainerView, context: Context) {
-        
     }
 }
