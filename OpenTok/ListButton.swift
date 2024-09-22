@@ -48,3 +48,7 @@ struct ListButton: View {
         .buttonStyle(.borderedProminent)
     }
 }
+
+#Preview {
+    ContentView()
+}
