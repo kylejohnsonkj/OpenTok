@@ -49,74 +49,72 @@ struct HeaderView: View {
 struct HowToVideoView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Group {
-                Text("How to enable")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-                    .textCase(.uppercase)
-                    .padding(.top)
-                
-                Label {
-                    Text("Open a shared TikTok video")
-                        .font(.headline)
-                } icon: {
-                    Image(systemName: "1.circle")
-                        .imageScale(.large)
-                }
-                .padding(.top, 12)
-                .padding(.bottom, 8)
-                
-                ButtonView(
-                    text: "Try it now!",
-                    image: "music.note",
-                    link: "https://www.tiktok.com/t/ZP8eVDC8c/"
-                )
-                .tint(.pink)
-                .padding(.leading, 35)
-                
-                Label {
-                    Text("Tap the \(Image("symbol")) icon on the left of the search bar")
-                        .font(.headline)
-                        .imageScale(.large)
-                } icon: {
-                    Image(systemName: "2.circle")
-                        .imageScale(.large)
-                }
-                .padding(.vertical)
-                
-                Label {
-                    Text("Enable and allow the extension for TikTok.com")
-                        .font(.headline)
-                } icon: {
-                    Image(systemName: "3.circle")
-                        .imageScale(.large)
-                }
-                
-                VideoExplainerSwiftUIView()
-                    .aspectRatio(1, contentMode: .fit)
-                    .shadow(radius: 3)
-                    .padding(.vertical)
-                    .padding(.horizontal, 2)
-                
-                Label {
-                    Text("TikToks still not playing?")
-                        .font(.headline)
-                } icon: {
-                    Image(systemName: "questionmark.circle")
-                        .imageScale(.large)
-                }
-                .padding(.bottom, 8)
-                
-                InternalButtonView(
-                    text: "Verify setup",
-                    image: "gear"
-                )
-                .tint(Color(UIColor.darkGray))
-                .padding(.leading, 35)
-                .padding(.bottom)
+            Text("How to enable")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                .textCase(.uppercase)
+                .padding(.top)
+            
+            Label {
+                Text("Open a shared TikTok video")
+                    .font(.headline)
+            } icon: {
+                Image(systemName: "1.circle")
+                    .imageScale(.large)
             }
-            .padding(.horizontal)
+            .padding(.top, 12)
+            .padding(.bottom, 8)
+            
+            ButtonView(
+                text: "Try it now!",
+                image: "music.note",
+                link: "https://www.tiktok.com/t/ZP8eVDC8c/"
+            )
+            .tint(.pink)
+            .padding(.leading, 35)
+            
+            Label {
+                Text("Tap the \(Image("symbol")) icon on the left of the search bar")
+                    .font(.headline)
+                    .imageScale(.large)
+            } icon: {
+                Image(systemName: "2.circle")
+                    .imageScale(.large)
+            }
+            .padding(.vertical)
+            
+            Label {
+                Text("Enable and allow the extension for TikTok.com")
+                    .font(.headline)
+            } icon: {
+                Image(systemName: "3.circle")
+                    .imageScale(.large)
+            }
+            
+            VideoExplainerSwiftUIView()
+                .aspectRatio(1, contentMode: .fit)
+                .shadow(radius: 3)
+                .padding(.vertical)
+                .padding(.horizontal, 2)
+            
+            Label {
+                Text("TikToks still not playing?")
+                    .font(.headline)
+            } icon: {
+                Image(systemName: "questionmark.circle")
+                    .imageScale(.large)
+            }
+            .padding(.bottom, 8)
+            
+            InternalButtonView(
+                text: "Verify setup",
+                image: "gear"
+            )
+            .tint(Color(UIColor.darkGray))
+            .padding(.leading, 35)
+            .padding(.bottom)
         }
+        .padding(.horizontal)
         .background(.groupTableViewBackground)
     }
 }
