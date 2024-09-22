@@ -47,6 +47,9 @@ struct HeaderView: View {
 }
 
 struct HowToListView: View {
+    @ScaledMetric var buttonInset = 35
+    @ScaledMetric var maxVideoWidth = 550 // for iPad
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("How to enable")
@@ -68,7 +71,7 @@ struct HowToListView: View {
                 link: "https://www.tiktok.com/t/ZP8eVDC8c/"
             )
             .tint(.pink)
-            .padding(.leading, 35)
+            .padding(.leading, buttonInset)
             
             ListEntry(
                 tapInstructionsText, // Tap the icon...
@@ -81,11 +84,15 @@ struct HowToListView: View {
                 image: "3.circle"
             )
             
-            VideoExplainerSwiftUIView()
-                .aspectRatio(1, contentMode: .fit)
-                .shadow(radius: 3)
-                .padding(.vertical)
-                .padding(.horizontal, 2)
+            Group {
+                VideoExplainerSwiftUIView()
+                    .aspectRatio(1, contentMode: .fit)
+                    .frame(maxWidth: maxVideoWidth)
+                    .shadow(radius: 3)
+                    .padding(.vertical)
+                    .padding(.horizontal, 2)
+            }
+            .frame(maxWidth: .infinity)
             
             ListEntry(
                 Text("TikToks still not playing?"),
@@ -98,7 +105,7 @@ struct HowToListView: View {
                 image: "gear"
             )
             .tint(.darkGray)
-            .padding(.leading, 35)
+            .padding(.leading, buttonInset)
             .padding(.bottom)
         }
         .padding(.horizontal)
