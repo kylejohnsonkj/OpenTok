@@ -17,10 +17,10 @@ struct ContentView: View {
         }
         .background(
             LinearGradient(gradient: Gradient(colors: [
-                Color.background,
-                Color.background,
-                Color(UIColor.groupTableViewBackground),
-                Color(UIColor.groupTableViewBackground)
+                .background,
+                .background,
+                .groupTableViewBackground,
+                .groupTableViewBackground
             ]), startPoint: .top, endPoint: .bottom)
         )
     }
@@ -97,7 +97,7 @@ struct HowToVideoView: View {
             }
             .padding(.horizontal)
         }
-        .background(Color(UIColor.groupTableViewBackground))
+        .background(.groupTableViewBackground)
     }
 }
 
