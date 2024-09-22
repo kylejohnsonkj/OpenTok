@@ -17,8 +17,8 @@ struct ContentView: View {
             LinearGradient(gradient: Gradient(colors: [
                 .background,
                 .background,
-                .groupTableViewBackground,
-                .groupTableViewBackground
+                .tableViewBackground,
+                .tableViewBackground
             ]), startPoint: .top, endPoint: .bottom)
         )
     }
@@ -104,12 +104,12 @@ struct HowToListView: View {
                 text: "Verify setup",
                 image: "gear"
             )
-            .tint(.darkGray)
+            .tint(.buttonGray)
             .padding(.leading, buttonInset)
             .padding(.bottom)
         }
         .padding(.horizontal)
-        .background(.groupTableViewBackground)
+        .background(.tableViewBackground)
     }
     
     var tapInstructionsText: Text {
