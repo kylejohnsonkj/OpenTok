@@ -20,25 +20,25 @@ struct ListButton: View {
     
     @State var isSheetPresented = false
     
+    var buttonLabel: some View {
+        HStack {
+            Image(systemName: image)
+                .imageScale(.large)
+            Text(text)
+        }
+    }
+    
     var body: some View {
         Group {
             if let link {
                 Link(destination: URL(string: link)!) {
-                    HStack {
-                        Image(systemName: image)
-                            .imageScale(.large)
-                        Text(text)
-                    }
+                    buttonLabel
                 }
             } else {
                 Button {
                     isSheetPresented = true
                 } label: {
-                    HStack {
-                        Image(systemName: image)
-                            .imageScale(.large)
-                        Text(text)
-                    }
+                    buttonLabel
                 }
                 .sheet(isPresented: $isSheetPresented) {
                     VerifySetupListView()
