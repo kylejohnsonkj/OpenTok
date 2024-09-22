@@ -14,7 +14,6 @@ struct ContentView: View {
         ScrollView {
             HeaderView()
             HowToVideoView()
-//            FooterView()
         }
         .background(
             LinearGradient(gradient: Gradient(colors: [
@@ -178,19 +177,6 @@ struct InternalButtonView: View {
         .sheet(isPresented: $isSheetPresented) {
             HowToListView()
         }
-    }
-}
-
-struct FooterView: View {
-    var body: some View {
-        Text("© 2024 Kyle Johnson Apps")
-            .font(.footnote)
-            .bold()
-            .foregroundStyle(.secondary)
-            .padding(.top)
-            .padding(.bottom, 10)
-            .frame(maxWidth: .infinity)
-            .background(Color.background)
     }
 }
 
