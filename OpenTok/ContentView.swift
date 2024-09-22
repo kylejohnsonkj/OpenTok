@@ -171,7 +171,7 @@ struct InternalButtonView: View {
         }
         .buttonStyle(.borderedProminent)
         .sheet(isPresented: $isSheetPresented) {
-            HowToListView()
+            VerifySetupListView()
         }
     }
 }

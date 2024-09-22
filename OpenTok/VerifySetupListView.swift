@@ -1,5 +1,5 @@
 //
-//  HowToListView.swift
+//  VerifySetupListView.swift
 //  OpenTok
 //
 //  Created by Kyle Johnson on 9/21/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HowToListView: View {
+struct VerifySetupListView: View {
     var body: some View {
         List {
             Section {
@@ -79,5 +79,5 @@ struct ListEntry: View {
 }
 
 #Preview {
-    HowToListView()
+    VerifySetupListView()
 }
