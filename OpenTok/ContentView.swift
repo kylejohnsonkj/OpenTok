@@ -62,7 +62,7 @@ struct HowToListView: View {
             .padding(.top, 12)
             .padding(.bottom, 8)
             
-            ButtonView(
+            ListButton(
                 text: "Try it now!",
                 image: "music.note",
                 link: "https://www.tiktok.com/t/ZP8eVDC8c/"
@@ -93,7 +93,7 @@ struct HowToListView: View {
             )
             .padding(.bottom, 8)
             
-            InternalButtonView(
+            ListButton(
                 text: "Verify setup",
                 image: "gear"
             )
@@ -123,63 +123,6 @@ struct HowToListView: View {
                 Image(systemName: image)
                     .imageScale(.large)
             }
-        }
-    }
-}
-
-struct HowToButtonView: View {
-    var body: some View {
-        HStack(spacing: 12) {
-            ButtonView(
-                text: "Test Video",
-                image: "music.note",
-                link: "https://www.tiktok.com/t/ZP8eVDC8c/"
-            )
-            .tint(.pink)
-        }
-        .frame(maxWidth: .infinity)
-        .listRowBackground(Color.clear)
-        .listRowSeparator(.hidden)
-        .padding(.top, -4)
-    }
-}
-
-struct ButtonView: View {
-    let text: String
-    let image: String
-    let link: String
-    
-    var body: some View {
-        Link(destination: URL(string: link)!) {
-            HStack {
-                Image(systemName: image)
-                    .imageScale(.large)
-                Text(text)
-            }
-        }
-        .buttonStyle(.borderedProminent)
-    }
-}
-
-struct InternalButtonView: View {
-    let text: String
-    let image: String
-    
-    @State var isSheetPresented = false
-    
-    var body: some View {
-        Button {
-            isSheetPresented = true
-        } label: {
-            HStack {
-                Image(systemName: image)
-                    .imageScale(.large)
-                Text(text)
-            }
-        }
-        .buttonStyle(.borderedProminent)
-        .sheet(isPresented: $isSheetPresented) {
-            VerifySetupListView()
         }
     }
 }
