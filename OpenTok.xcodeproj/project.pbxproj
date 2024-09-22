@@ -40,6 +40,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E5079F322CA06DBC00C37E8C /* Exceptions for "OpenTok" folder in "OpenTok" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E50D660A2C94DDD900906236 /* OpenTok */;
+		};
 		E50D66392C94DE4A00906236 /* Exceptions for "OpenTok Extension" folder in "OpenTok Extension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -52,6 +59,9 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E50D660D2C94DDD900906236 /* OpenTok */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E5079F322CA06DBC00C37E8C /* Exceptions for "OpenTok" folder in "OpenTok" target */,
+			);
 			path = OpenTok;
 			sourceTree = "<group>";
 		};
@@ -365,6 +375,7 @@
 				DEVELOPMENT_TEAM = GP799FVH94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenTok/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -399,6 +410,7 @@
 				DEVELOPMENT_TEAM = GP799FVH94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OpenTok/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
