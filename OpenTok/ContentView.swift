@@ -70,10 +70,26 @@ struct HowToListView: View {
             .tint(.pink)
             .padding(.leading, 35)
             
-            ListEntry(
-                Text("Tap the \(Image("symbol")) icon on the left of the search bar"),
-                image: "2.circle"
-            )
+            Group {
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    if #available(iOS 18, *) {
+                        ListEntry(
+                            Text("Tap the \(Image("symbol")) icon on the left of the search bar"),
+                            image: "2.circle"
+                        )
+                    } else {
+                        ListEntry(
+                            Text("Tap the \(Image(systemName: "textformat.size")) icon on the left of the search bar"),
+                            image: "2.circle"
+                        )
+                    }
+                } else {
+                    ListEntry(
+                        Text("Tap the \(Image(systemName: "puzzlepiece.extension")) icon on the right of the search bar"),
+                        image: "2.circle"
+                    )
+                }
+            }
             .padding(.vertical)
             
             ListEntry(
