@@ -97,7 +97,7 @@ struct HowToListView: View {
                 text: "Verify setup",
                 image: "gear"
             )
-            .tint(Color(UIColor.darkGray))
+            .tint(.darkGray)
             .padding(.leading, 35)
             .padding(.bottom)
         }
