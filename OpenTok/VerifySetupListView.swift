@@ -55,25 +55,25 @@ struct VerifySetupListView: View {
         .presentationDetents([.medium])
         .presentationDragIndicator(.visible)
     }
-}
-
-struct ListEntry: View {
-    let text: Text
-    let image: String
-    let color: Color
     
-    init(_ text: Text, image: String, color: Color) {
-        self.text = text
-        self.image = image
-        self.color = color
-    }
-    
-    var body: some View {
-        Label {
-            text
-        } icon: {
-            Image(systemName: image)
-                .foregroundStyle(color)
+    struct ListEntry: View {
+        let text: Text
+        let image: String
+        let color: Color
+        
+        init(_ text: Text, image: String, color: Color) {
+            self.text = text
+            self.image = image
+            self.color = color
+        }
+        
+        var body: some View {
+            Label {
+                text
+            } icon: {
+                Image(systemName: image)
+                    .foregroundStyle(color)
+            }
         }
     }
 }

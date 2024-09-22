@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         ScrollView {
             HeaderView()
-            HowToVideoView()
+            HowToListView()
         }
         .background(
             LinearGradient(gradient: Gradient(colors: [
@@ -46,7 +46,7 @@ struct HeaderView: View {
     }
 }
 
-struct HowToVideoView: View {
+struct HowToListView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("How to enable")
@@ -55,13 +55,10 @@ struct HowToVideoView: View {
                 .textCase(.uppercase)
                 .padding(.top)
             
-            Label {
-                Text("Open a shared TikTok video")
-                    .font(.headline)
-            } icon: {
-                Image(systemName: "1.circle")
-                    .imageScale(.large)
-            }
+            ListEntry(
+                Text("Open a shared TikTok video"),
+                image: "1.circle"
+            )
             .padding(.top, 12)
             .padding(.bottom, 8)
             
@@ -73,23 +70,16 @@ struct HowToVideoView: View {
             .tint(.pink)
             .padding(.leading, 35)
             
-            Label {
-                Text("Tap the \(Image("symbol")) icon on the left of the search bar")
-                    .font(.headline)
-                    .imageScale(.large)
-            } icon: {
-                Image(systemName: "2.circle")
-                    .imageScale(.large)
-            }
+            ListEntry(
+                Text("Tap the \(Image("symbol")) icon on the left of the search bar"),
+                image: "2.circle"
+            )
             .padding(.vertical)
             
-            Label {
-                Text("Enable and allow the extension for TikTok.com")
-                    .font(.headline)
-            } icon: {
-                Image(systemName: "3.circle")
-                    .imageScale(.large)
-            }
+            ListEntry(
+                Text("Enable and allow the extension for TikTok.com"),
+                image: "3.circle"
+            )
             
             VideoExplainerSwiftUIView()
                 .aspectRatio(1, contentMode: .fit)
@@ -97,13 +87,10 @@ struct HowToVideoView: View {
                 .padding(.vertical)
                 .padding(.horizontal, 2)
             
-            Label {
-                Text("TikToks still not playing?")
-                    .font(.headline)
-            } icon: {
-                Image(systemName: "questionmark.circle")
-                    .imageScale(.large)
-            }
+            ListEntry(
+                Text("TikToks still not playing?"),
+                image: "questionmark.circle"
+            )
             .padding(.bottom, 8)
             
             InternalButtonView(
@@ -116,6 +103,27 @@ struct HowToVideoView: View {
         }
         .padding(.horizontal)
         .background(.groupTableViewBackground)
+    }
+    
+    struct ListEntry: View {
+        let text: Text
+        let image: String
+        
+        init(_ text: Text, image: String) {
+            self.text = text
+            self.image = image
+        }
+        
+        var body: some View {
+            Label {
+                text
+                    .font(.headline)
+                    .imageScale(.large)
+            } icon: {
+                Image(systemName: image)
+                    .imageScale(.large)
+            }
+        }
     }
 }
 
