@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isSheetPresented = false
-    
     var body: some View {
         ScrollView {
             HeaderView()
@@ -23,6 +21,28 @@ struct ContentView: View {
                 .groupTableViewBackground
             ]), startPoint: .top, endPoint: .bottom)
         )
+    }
+}
+
+struct HeaderView: View {
+    var body: some View {
+        HStack(spacing: 0) {
+            Image("AppIcon-Rounded")
+                .resizable()
+                .frame(width: 96, height: 96)
+                .padding(.trailing)
+            
+            VStack(alignment: .leading) {
+                Text("OpenTok")
+                    .font(.title)
+                    .bold()
+                Text("A Safari extension that lets you watch shared TikToks in your browser")
+                    .font(.footnote)
+                    .bold()
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .padding()
     }
 }
 
@@ -98,28 +118,6 @@ struct HowToVideoView: View {
             .padding(.horizontal)
         }
         .background(.groupTableViewBackground)
-    }
-}
-
-struct HeaderView: View {
-    var body: some View {
-        HStack(spacing: 0) {
-            Image("AppIcon-Rounded")
-                .resizable()
-                .frame(width: 96, height: 96)
-                .padding(.trailing)
-            
-            VStack(alignment: .leading) {
-                Text("OpenTok")
-                    .font(.title)
-                    .bold()
-                Text("A Safari extension that lets you watch shared TikToks in your browser")
-                    .font(.footnote)
-                    .bold()
-                    .foregroundStyle(.secondary)
-            }
-        }
-        .padding()
     }
 }
 
