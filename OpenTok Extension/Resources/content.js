@@ -15,6 +15,7 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]+\/(video|photo)\/\d+/.test(ur
     // Remove smart app banner and auto start video if dialog box appears
     document.addEventListener('DOMSubtreeModified', () => {
         document.querySelector('meta[name="apple-itunes-app"]')?.remove();
+        document.getElementById('tux-screen-lock')?.remove();
         document.querySelector('button[class*="close-button"]')?.click();
     });
 }
