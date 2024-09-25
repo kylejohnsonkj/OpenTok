@@ -18,4 +18,13 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]+\/(video|photo)\/\d+/.test(ur
         document.querySelector('button[class*="close-button"]')?.click();
         document.querySelector('span[data-e2e*="launch-popup-close"]')?.click();
     });
+    
+    // Force the "Watch again" button to restart the video
+    // Normal behavior when pressed more than once is to redirect to the App Store
+    document.addEventListener("click", function(event) {
+        if (event.target.closest('div[class*="DivBtnWrapper"]')) {
+            event.stopPropagation();
+            window.location.reload();
+        }
+    }, true);
 }
