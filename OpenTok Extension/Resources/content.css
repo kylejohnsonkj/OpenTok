@@ -1,6 +1,7 @@
 div[class*="DivFixedWrapper"], /* top bar and bottom "get the full experience" banner */
 div[class*="DivVideoCaption"] > div[class*="matrix-smart-wrapper"], /* bar beneath caption */
 div[class*="DivCamera"], /* watch on tiktok */
+div[class*="tux-base-dialog"], /* popup */
 div[class*="DivSwiperParent"], /* recommended videos */
 div[class*="DivSeeMore"], /* see more comments */
 div[class*="DivFinishTip"], /* scroll up to view more */

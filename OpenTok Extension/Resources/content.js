@@ -12,9 +12,10 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]+\/(video|photo)\/\d+/.test(ur
         window.location.replace(newUrl);
     }
     
-    // Remove smart app banner and automatically close dialog box
+    // Remove smart app banner and automatically close dialog boxes
     document.addEventListener('DOMSubtreeModified', () => {
         document.querySelector('meta[name="apple-itunes-app"]')?.remove();
         document.querySelector('button[class*="close-button"]')?.click();
+        document.querySelector('span[data-e2e*="launch-popup-close"]')?.click();
     });
 }
