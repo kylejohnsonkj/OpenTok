@@ -51,7 +51,7 @@ struct VerifySetupListView: View {
             } header: {
                 Text("\nVerify setup")
             } footer: {
-                Text("Still not working? Change tiktok.com and Other Websites to **Ask** and retry setup. Make sure to select **Always Allow on This Website** when prompted.")
+                Text("If the issue persists, set tiktok.com and Other Websites both to **Ask**, then rewatch the tutorial. Ensure you select **Always Allow on This Website** when prompted.")
             }
         }
         .presentationDetents([.medium])

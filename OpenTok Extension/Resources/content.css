@@ -27,3 +27,11 @@ div[class*="layout-box"] {
 div[class*="DivCommentListContainer"] {
     border-bottom: 19px solid white; /* bottom padding to fix layout */
 }
+
+/* Revert the effects of the tux-screen-lock style */
+html {
+    overflow: auto !important;
+}
+body {
+    position: relative !important;
+}
