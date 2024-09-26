@@ -20,11 +20,16 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]+\/(video|photo)\/\d+/.test(ur
     });
     
     // Force the "Watch again" button to restart the video
-    // Normal behavior when pressed more than once is to redirect to the App Store
+    // when tapped more than once (instead of redirecting to the App Store)
+    let didWatchAgain = false;
     document.addEventListener("click", function(event) {
-        if (event.target.closest('div[class*="DivBtnWrapper"]')) {
-            event.stopPropagation();
-            window.location.reload();
+        if (event.target && event.target.closest('div[class*="DivBtnWrapper"]')) {
+            if (didWatchAgain) {
+                event.stopPropagation();
+                window.location.reload();
+            } else {
+                didWatchAgain = true;
+            }
         }
     }, true);
 }
