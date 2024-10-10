@@ -8,6 +8,8 @@ div[class*="DivFinishTip"], /* scroll up to view more */
 div[class*="DivTuxBarContainer"], /* today's top videos */
 div[class*="DivBottomButtonSection"], /* download tiktok button */
 div[class*="DivHalfwayPopupMask"], /* fake alert */
+div[class*="DivErrorContainer"], /* something went wrong */
+div[class*="DivTabLoadingContainer"], /* loading animation */
 ul[class*="UlRList"] { /* recommended videos */
     display: none;
 }
