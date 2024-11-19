@@ -10,6 +10,8 @@ div[class*="DivBottomButtonSection"], /* download tiktok button */
 div[class*="DivHalfwayPopupMask"], /* fake alert */
 div[class*="DivErrorContainer"], /* something went wrong */
 div[class*="DivTabLoadingContainer"], /* loading animation */
+div[class*="DivRecommendListTitle"], /* today's top videos */
+footer[data-e2e*="playlist-banner"], /* playlist banner */
 ul[class*="UlRList"] { /* recommended videos */
     display: none;
 }
