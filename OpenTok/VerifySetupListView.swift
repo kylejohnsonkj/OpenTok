@@ -39,19 +39,24 @@ struct VerifySetupListView: View {
                     color: .pink
                 )
                 ListEntry(
-                    Text("Turn on **Allow Extension**"),
+                    Text("Turn **Allow Extension** On"),
                     image: "switch.2",
                     color: .green
                 )
                 ListEntry(
-                    Text("Change tiktok.com to **Allow**"),
+                    Text("Set **tiktok.com** to Allow"),
+                    image: "checkmark.circle",
+                    color: .orange
+                )
+                ListEntry(
+                    Text("Set **Other Websites** to Ask"),
                     image: "checkmark.circle",
                     color: .orange
                 )
             } header: {
                 Text("\nVerify setup")
             } footer: {
-                Text("If the issue persists, set tiktok.com and Other Websites to **Ask**, then rewatch the tutorial. Ensure you select **Always Allow on This Website** when prompted.")
+                Text("If issues persist, reach out for support at kylejohnsonapps.com/contact")
             }
         }
         .presentationDetents([.medium])

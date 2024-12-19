@@ -77,11 +77,17 @@ struct HowToListView: View {
                 tapInstructionsText, // Tap the icon...
                 image: "2.circle"
             )
-            .padding(.vertical)
+            .padding(.vertical, 12)
             
             ListEntry(
-                Text("Enable and allow the extension for TikTok.com"),
+                Text("Enable the OpenTok extension"),
                 image: "3.circle"
+            )
+            .padding(.bottom, 12)
+            
+            ListEntry(
+                Text("Tap \"Always Allow on This Website\""),
+                image: "4.circle"
             )
             
             Group {
