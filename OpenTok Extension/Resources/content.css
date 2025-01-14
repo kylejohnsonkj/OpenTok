@@ -11,6 +11,12 @@ div[class*="DivHalfwayPopupMask"], /* fake alert */
 div[class*="DivErrorContainer"], /* something went wrong */
 div[class*="DivTabLoadingContainer"], /* loading animation */
 div[class*="DivRecommendListTitle"], /* today's top videos */
+div[class*="DivFloatButtonWrapper"], /* discover more button */
+div[class*="DivModalContainer"], /* get the full app experience */
+div[class*="DivMask"], /* channel mask */
+div[class*="DivBodyWrapper"], /* channel sheet */
+div[class*="DivCtaGuideWrapper"], /* channel footer */
+div[class*="DivGridItem"], /* related to suggestions */
 footer[data-e2e*="playlist-banner"], /* playlist banner */
 ul[class*="UlRList"] { /* recommended videos */
     display: none;
@@ -20,7 +26,10 @@ div[class*="DivUnmuteButton"] {
     top: 16px; /* move unmute now that top bar is hidden */
 }
 
-div[class*="DivInfoSection"], div[class*="DivCommentListContainer"] {
+div[class*="DivInfoSection"], /* video tappable region */
+div[class*="DivCommentListContainer"], /* video comments */
+div[class*="matrix-smart-wrapper"]:has(div[class*="DivFavor"]), /* channel heart button */
+div[class*="matrix-smart-wrapper"]:has(div[class*="DivComment"]) { /* channel comment button */
     pointer-events: none; /* prevent redirects to app store */
 }
 

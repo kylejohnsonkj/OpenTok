@@ -32,4 +32,12 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]+\/(video|photo)\/\d+/.test(ur
             }
         }
     }, true);
+    
+} else if (url.hostname === 'www.tiktok.com' && /^\/discover\//.test(url.pathname)) {
+    document.addEventListener('DOMSubtreeModified', () => {
+        const link = document.querySelector('div[class*="DivVideoCard"][style*="grid-column"] div[class*="DivVideoPlayer"] a');
+        if (link) {
+            window.location.replace(link.href);
+        }
+    });
 }
