@@ -1,3 +1,5 @@
+<img align="left" width="64" height="64" src="icon.png" alt="OpenTok icon">
+
 # OpenTok
 
 OpenTok brings back the ability to watch shared TikToks in your browser.
