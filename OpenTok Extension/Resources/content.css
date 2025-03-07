@@ -33,6 +33,11 @@ div[class*="matrix-smart-wrapper"]:has(div[class*="DivComment"]) { /* channel co
     pointer-events: none; /* prevent redirects to app store */
 }
 
+div[data-e2e*="caption-icon"], /* allow tap for captions */
+article[class*="ArticleLimitLine"] > button { /* allow tap on "See more" */
+    pointer-events: auto;
+}
+
 div[class*="layout-box"] {
     padding: 0 !important; /* hide extra whitespace at bottom */
 }
