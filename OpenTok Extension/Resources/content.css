@@ -9,15 +9,19 @@ div[class*="DivTuxBarContainer"], /* today's top videos */
 div[class*="DivBottomButtonSection"], /* download tiktok button */
 div[class*="DivHalfwayPopupMask"], /* fake alert */
 div[class*="DivErrorContainer"], /* something went wrong */
+div[class*="DivLoadingContainer"], /* loading animation */
 div[class*="DivTabLoadingContainer"], /* loading animation */
 div[class*="DivRecommendListTitle"], /* today's top videos */
 div[class*="DivFloatButtonWrapper"], /* discover more button */
 div[class*="DivModalContainer"], /* get the full app experience */
+div[class*="DivCommentCtaContainer"], /* open tiktok to comment button */
+div[class*="DivContainer"], /* mask and sheet parent view */
 div[class*="DivMask"], /* channel mask */
 div[class*="DivBodyWrapper"], /* channel sheet */
 div[class*="DivCtaGuideWrapper"], /* channel footer */
 div[class*="DivGridItem"], /* related to suggestions */
 footer[data-e2e*="playlist-banner"], /* playlist banner */
+div[id*="app-skeleton"], /* skeleton state */
 ul[class*="UlRList"] { /* recommended videos */
     display: none;
 }
@@ -44,6 +48,12 @@ div[class*="layout-box"] {
 
 div[class*="DivCommentListContainer"] {
     border-bottom: 19px solid white; /* bottom padding to fix layout */
+}
+
+div[class*="DivHeaderWrapper"] {
+    display: block;
+    padding-left: 12px;
+    padding-bottom: 0;
 }
 
 /* Revert the effects of the tux-screen-lock style */

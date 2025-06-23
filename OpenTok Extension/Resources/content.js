@@ -20,13 +20,16 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]*\/(video|photo)\/\d+/.test(ur
         
         // Attempt to insert casual review prompt
         insertMessageUnderWatchAgain();
+        
+        // Relocate comments back under the video
+        relocateComments();
     });
     
     // Force the "Watch again" button to restart the video
     // when tapped more than once (instead of redirecting to the App Store)
     let didWatchAgain = false;
     document.addEventListener("click", function(event) {
-        if (event.target && event.target.closest('div[class*="DivBtnWrapper"]')) {
+        if (event.target && event.target.closest('div[class*="DivCTABtnContainer"]')) {
             if (didWatchAgain) {
                 event.stopPropagation();
                 window.location.reload();
@@ -43,6 +46,38 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]*\/(video|photo)\/\d+/.test(ur
             window.location.replace(link.href);
         }
     });
+}
+
+function relocateComments() {
+    const commentsId = "relocated-comments";
+    
+    // Tap the comments button to display the modal in the background
+    setTimeout(() => {
+        if (document.getElementById(commentsId)) return;
+        
+        document.querySelector('div[data-e2e="play-side-comment"]')?.click();
+        
+        // After the modal finishes appearing, relocate the comments below the video
+        setTimeout(() => {
+            if (document.getElementById(commentsId)) return;
+            
+            const layoutBox = document.querySelector('div[class*="layout-box"]');
+            if (!layoutBox) return;
+            
+            const commentsHeader = document.querySelector('div[class*="DivHeaderWrapper"]');
+            if (commentsHeader) {
+                commentsHeader.id = commentsId;
+                layoutBox.appendChild(commentsHeader);
+            }
+            
+            const comments = document.querySelector('div[class*="DivCommentListContainer"]');
+            if (comments) {
+                layoutBox.appendChild(comments);
+            }
+            
+            document.querySelector('div[class*="DivCloseWrapper"]')?.click();
+        }, 1000);
+    }, 750);
 }
 
 function insertMessageUnderWatchAgain() {
@@ -101,7 +136,7 @@ function createReviewLink() {
     
     link.addEventListener("click", () => {
         localStorage.setItem("OpenTok-lastReviewedVersion", chrome.runtime.getManifest().version);
-        plainText.textContent = "Thank you ❤️";
+        plainText.textContent = "Thank you! ❤️";
         underlinedText.textContent = "";
     });
     

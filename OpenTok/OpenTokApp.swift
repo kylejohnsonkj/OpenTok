@@ -63,7 +63,7 @@ struct ReviewSheetView: View {
             .padding(.vertical)
             .padding(.horizontal, 20)
             
-            Text("Leaving a rating or [review](https://itunes.apple.com/app/id6708240044?action=write-review) supports development and makes it easier for new users to discover OpenTok on the App Store.")
+            Text("Leaving a rating or [review](https://itunes.apple.com/app/id6708240044?action=write-review) helps support development and makes it easier for new users to discover this extension on the App Store.")
                 .font(.callout)
                 .padding(.horizontal, 20)
         }
