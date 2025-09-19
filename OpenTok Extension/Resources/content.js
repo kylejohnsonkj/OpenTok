@@ -4,12 +4,14 @@ const url = new URL(window.location.href);
 // The primary DOM object for the TikTok web experience
 const appNode = document.getElementById("app");
 
-// Check if the URL is for a TikTok video or photo slideshow
-if (url.hostname === 'www.tiktok.com' && /^\/@[^/]*\/(video|photo)\/\d+/.test(url.pathname)) {
+// Check if the URL is for a TikTok video or photo slideshow (or still a short form URL)
+if (url.hostname === 'www.tiktok.com' && (/^\/@[^/]*\/(video|photo)\/\d+/.test(url.pathname) || /^\/t\//.test(url.pathname))) {
+    const currentUrl = new URL(window.location.href);
+    
     // Check for query parameters (which prevent video playback)
-    if (url.search) {
+    if (currentUrl.search) {
         // Construct a new URL without query parameters
-        const newUrl = `${url.origin}${url.pathname}`;
+        const newUrl = `${currentUrl.origin}${currentUrl.pathname}`;
         
         // Redirect to the new URL
         window.location.replace(newUrl);
