@@ -1,6 +1,9 @@
 // Get the current URL
 const url = new URL(window.location.href);
 
+// The primary DOM object for the TikTok web experience
+const appNode = document.getElementById("app");
+
 // Check if the URL is for a TikTok video or photo slideshow
 if (url.hostname === 'www.tiktok.com' && /^\/@[^/]*\/(video|photo)\/\d+/.test(url.pathname)) {
     // Check for query parameters (which prevent video playback)
@@ -11,8 +14,6 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]*\/(video|photo)\/\d+/.test(ur
         // Redirect to the new URL
         window.location.replace(newUrl);
     }
-    
-    const appNode = document.getElementById("app");
     
     // This callback will run whenever the subtree changes
     const observer = new MutationObserver(() => {
@@ -61,33 +62,37 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]*\/(video|photo)\/\d+/.test(ur
 function relocateComments() {
     const commentsId = "relocated-comments";
     
-    // Tap the comments button to display the modal in the background
-    setTimeout(() => {
-        if (document.getElementById(commentsId)) return;
+    if (document.getElementById(commentsId)) return;
+    
+    // Open the comments modal
+    document.querySelector('div[data-e2e="play-side-comment"]')?.click();
+    
+    const observer = new MutationObserver(() => {
+        const layoutBox = document.querySelector('div[class*="layout-box"]');
+        const commentsHeader = document.querySelector('div[class*="DivHeaderWrapper"]');
+        const comments = document.querySelector('div[class*="DivCommentListContainer"]');
         
-        document.querySelector('div[data-e2e="play-side-comment"]')?.click();
+        // Wait until actual comments are loaded (not skeletons)
+        const hasRealComments = comments?.querySelector('div[class*="DivCommentItemContainer"]');
         
-        // After the modal finishes appearing, relocate the comments below the video
-        setTimeout(() => {
-            if (document.getElementById(commentsId)) return;
-            
-            const layoutBox = document.querySelector('div[class*="layout-box"]');
-            if (!layoutBox) return;
-            
-            const commentsHeader = document.querySelector('div[class*="DivHeaderWrapper"]');
-            if (commentsHeader) {
+        if (layoutBox && commentsHeader && comments && hasRealComments) {
+            if (!document.getElementById(commentsId)) {
+                // Relocate the comments below the video
                 commentsHeader.id = commentsId;
                 layoutBox.appendChild(commentsHeader);
-            }
-            
-            const comments = document.querySelector('div[class*="DivCommentListContainer"]');
-            if (comments) {
                 layoutBox.appendChild(comments);
             }
-            
             document.querySelector('div[class*="DivCloseWrapper"]')?.click();
-        }, 1000);
-    }, 750);
+            observer.disconnect();
+        }
+    });
+    
+    observer.observe(appNode, {
+        childList: true,
+        attributes: true,
+        characterData: true,
+        subtree: true
+    });
 }
 
 function insertMessageUnderWatchAgain() {

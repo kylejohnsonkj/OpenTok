@@ -20,6 +20,7 @@ div[class*="DivMask"], /* channel mask */
 div[class*="DivBodyWrapper"], /* channel sheet */
 div[class*="DivCtaGuideWrapper"], /* channel footer */
 div[class*="DivGridItem"], /* related to suggestions */
+div[class*="DivBannerInVideo"], /* open in app top banner */
 footer[data-e2e*="playlist-banner"], /* playlist banner */
 div[id*="app-skeleton"], /* skeleton state */
 ul[class*="UlRList"] { /* recommended videos */
