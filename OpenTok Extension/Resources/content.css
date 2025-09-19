@@ -47,11 +47,13 @@ div[class*="layout-box"] {
 }
 
 div[class*="DivCommentListContainer"] {
-    border-bottom: 19px solid white; /* bottom padding to fix layout */
+    border-bottom: 12px solid white; /* bottom padding to fix layout */
 }
 
+/* Comments header */
 div[class*="DivHeaderWrapper"] {
     display: block;
+    padding-top: 14px;
     padding-left: 12px;
     padding-bottom: 0;
 }

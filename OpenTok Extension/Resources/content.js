@@ -12,7 +12,10 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]*\/(video|photo)\/\d+/.test(ur
         window.location.replace(newUrl);
     }
     
-    document.addEventListener('DOMSubtreeModified', () => {
+    const appNode = document.getElementById("app");
+    
+    // This callback will run whenever the subtree changes
+    const observer = new MutationObserver(() => {
         // Remove smart app banner and automatically close dialog boxes
         document.querySelector('meta[name="apple-itunes-app"]')?.remove();
         document.querySelector('button[class*="close-button"]')?.click();
@@ -23,6 +26,13 @@ if (url.hostname === 'www.tiktok.com' && /^\/@[^/]*\/(video|photo)\/\d+/.test(ur
         
         // Relocate comments back under the video
         relocateComments();
+    });
+    
+    observer.observe(appNode, {
+      childList: true,
+      attributes: true,
+      characterData: true,
+      subtree: true
     });
     
     // Force the "Watch again" button to restart the video
