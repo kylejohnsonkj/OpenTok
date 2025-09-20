@@ -1,28 +1,27 @@
-// Get the current URL
-const url = new URL(window.location.href);
-
 // The primary DOM object for the TikTok web experience
 const appNode = document.getElementById("app");
 
 // Check if the URL is for a TikTok video or photo slideshow (or still a short form URL)
-if (url.hostname === 'www.tiktok.com' && (/^\/@[^/]*\/(video|photo)\/\d+/.test(url.pathname) || /^\/t\//.test(url.pathname))) {
+if (window.location.hostname === 'www.tiktok.com' &&
+    (/^\/@[^/]*\/(video|photo)\/\d+/.test(window.location.pathname) || /^\/t\//.test(window.location.pathname))) {
+    
     // Check for query parameters (which prevent video playback)
-    if (url.search) {
+    if (window.location.search) {
         // Construct a new URL without query parameters
-        const newUrl = url.origin + url.pathname;
+        const newUrl = window.location.origin + window.location.pathname;
         
         // Redirect to the new URL
         window.location.replace(newUrl);
-        
-        // If the redirect does not succeed after a 3 second delay, try again
-        setTimeout(() => {
-            if (window.location.search) {
-                window.location.replace(newUrl);
-            }
-        }, 3000);
     }
     
-    // This callback will run whenever the subtree changes
+    // In case the short form URL resolves late, retry the redirect after 3 seconds
+    setTimeout(() => {
+        if (window.location.search) {
+            const newUrl = window.location.origin + window.location.pathname;
+            window.location.replace(newUrl);
+        }
+    }, 3000);
+    
     const observer = new MutationObserver(() => {
         // Remove smart app banner and automatically close dialog boxes
         document.querySelector('meta[name="apple-itunes-app"]')?.remove();
@@ -32,7 +31,7 @@ if (url.hostname === 'www.tiktok.com' && (/^\/@[^/]*\/(video|photo)\/\d+/.test(u
         // Attempt to insert casual review prompt
         insertMessageUnderWatchAgain();
         
-        // Relocate comments back under the video
+        // Relocate comments under the video
         relocateComments();
     });
     
@@ -57,7 +56,7 @@ if (url.hostname === 'www.tiktok.com' && (/^\/@[^/]*\/(video|photo)\/\d+/.test(u
         }
     }, true);
     
-} else if (url.hostname === 'www.tiktok.com' && /^\/discover\//.test(url.pathname)) {
+} else if (window.location.hostname === 'www.tiktok.com' && /^\/discover\//.test(window.location.pathname)) {
     const observer = new MutationObserver(() => {
         const link = document.querySelector('div[class*="DivVideoCard"][style*="grid-column"] div[class*="DivVideoPlayer"] a');
         if (link) {
@@ -113,7 +112,7 @@ function relocateComments() {
 function insertMessageUnderWatchAgain() {
     // Exclude from setup video
     const setupVideoId = "/video/6876424179084709126";
-    if (url.pathname.includes(setupVideoId)) return;
+    if (window.location.pathname.includes(setupVideoId)) return;
     
     // Exclude if user has already reviewed the current version
     const currentVersion = chrome.runtime.getManifest().version;
