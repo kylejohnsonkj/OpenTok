@@ -48,7 +48,7 @@ div[class*="layout-box"] {
 }
 
 div[class*="DivCommentListContainer"] {
-    border-bottom: 12px solid white; /* bottom padding to fix layout */
+    border-bottom: 19px solid white; /* bottom padding to fix layout */
 }
 
 /* Comments header */

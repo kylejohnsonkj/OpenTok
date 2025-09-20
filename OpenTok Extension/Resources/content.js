@@ -12,49 +12,50 @@ if (window.location.hostname === 'www.tiktok.com' &&
         
         // Redirect to the new URL
         window.location.replace(newUrl);
-    }
-    
-    // In case the short form URL resolves late, retry the redirect after 3 seconds
-    setTimeout(() => {
-        if (window.location.search) {
-            const newUrl = window.location.origin + window.location.pathname;
-            window.location.replace(newUrl);
-        }
-    }, 3000);
-    
-    const observer = new MutationObserver(() => {
-        // Remove smart app banner and automatically close dialog boxes
-        document.querySelector('meta[name="apple-itunes-app"]')?.remove();
-        document.querySelector('button[class*="close-button"]')?.click();
-        document.querySelector('span[data-e2e*="launch-popup-close"]')?.click();
         
-        // Attempt to insert casual review prompt
-        insertMessageUnderWatchAgain();
-        
-        // Relocate comments under the video
-        relocateComments();
-    });
-    
-    observer.observe(appNode, {
-      childList: true,
-      attributes: true,
-      characterData: true,
-      subtree: true
-    });
-    
-    // Force the "Watch again" button to restart the video
-    // when tapped more than once (instead of redirecting to the App Store)
-    let didWatchAgain = false;
-    document.addEventListener("click", function(event) {
-        if (event.target && event.target.closest('div[class*="DivCTABtnContainer"]')) {
-            if (didWatchAgain) {
-                event.stopPropagation();
-                window.location.reload();
-            } else {
-                didWatchAgain = true;
+        // In case the short form URL resolves late, retry the redirect after 0.5 seconds
+        setTimeout(() => {
+            if (window.location.search) {
+                const newUrl = window.location.origin + window.location.pathname;
+                window.location.replace(newUrl);
             }
-        }
-    }, true);
+        }, 500);
+        
+    } else {
+        const observer = new MutationObserver(() => {
+            // Remove smart app banner and automatically close dialog boxes
+            document.querySelector('meta[name="apple-itunes-app"]')?.remove();
+            document.querySelector('button[class*="close-button"]')?.click();
+            document.querySelector('span[data-e2e*="launch-popup-close"]')?.click();
+            
+            // Attempt to insert casual review prompt
+            insertMessageUnderWatchAgain();
+            
+            // Relocate comments under the video
+            relocateComments();
+        });
+        
+        observer.observe(appNode, {
+            childList: true,
+            attributes: true,
+            characterData: true,
+            subtree: true
+        });
+        
+        // Force the "Watch again" button to restart the video
+        // when tapped more than once (instead of redirecting to the App Store)
+        let didWatchAgain = false;
+        document.addEventListener("click", function(event) {
+            if (event.target && event.target.closest('div[class*="DivCTABtnContainer"]')) {
+                if (didWatchAgain) {
+                    event.stopPropagation();
+                    window.location.reload();
+                } else {
+                    didWatchAgain = true;
+                }
+            }
+        }, true);
+    }
     
 } else if (window.location.hostname === 'www.tiktok.com' && /^\/discover\//.test(window.location.pathname)) {
     const observer = new MutationObserver(() => {
