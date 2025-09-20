@@ -6,15 +6,20 @@ const appNode = document.getElementById("app");
 
 // Check if the URL is for a TikTok video or photo slideshow (or still a short form URL)
 if (url.hostname === 'www.tiktok.com' && (/^\/@[^/]*\/(video|photo)\/\d+/.test(url.pathname) || /^\/t\//.test(url.pathname))) {
-    const currentUrl = new URL(window.location.href);
-    
     // Check for query parameters (which prevent video playback)
-    if (currentUrl.search) {
+    if (url.search) {
         // Construct a new URL without query parameters
-        const newUrl = `${currentUrl.origin}${currentUrl.pathname}`;
+        const newUrl = url.origin + url.pathname;
         
         // Redirect to the new URL
         window.location.replace(newUrl);
+        
+        // If the redirect does not succeed after a 3 second delay, try again
+        setTimeout(() => {
+            if (window.location.search) {
+                window.location.replace(newUrl);
+            }
+        }, 3000);
     }
     
     // This callback will run whenever the subtree changes

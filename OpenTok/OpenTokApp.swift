@@ -67,7 +67,7 @@ struct ReviewSheetView: View {
                 .font(.callout)
                 .padding(.horizontal, 20)
         }
-        .presentationDetents([.height(150)])
+        .presentationDetents([.height(151)])
     }
 }
 
